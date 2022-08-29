@@ -27,6 +27,8 @@ function App() {
       <h2>Let's get started!</h2>
       {expenses.map(expense => (
         <ExpenseItem
+          key={expense.id}
+          id={expense.id}
           title={expense.title}
           amount={expense.amount}
           date={expense.date}
