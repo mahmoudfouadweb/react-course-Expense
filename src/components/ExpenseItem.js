@@ -1,11 +1,18 @@
 import './ExpenseItem.css';
-function ExpenseItem() {
+function ExpenseItem(props) {
+  const year = props.date;
+  const month = props.date;
+  const day = props.date;
   return (
-    <div className="expense-item">
-      <div>August 24th 1991</div>
+    <div className="expense-item" id={props.id}>
+      <div>
+        <div>{year}</div>
+        <div>{month}</div>
+        <div>{day}</div>
+      </div>
       <div className="expense-item__description">
-        <h2>Car Insurance</h2>
-        <div className="expense-item__price">$294.67</div>
+        <h2>{props.title}</h2>
+        <div className="expense-item__price">{props.amount}</div>
       </div>
     </div>
   );
