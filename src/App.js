@@ -29,7 +29,6 @@ function App() {
   };
   return (
     <div>
-      <h2>Let's get started!</h2>
       <NewExpense onAddExpenseLevelFirst={expenseHandler} />
       <ExpensesList expenses={expenses} />
     </div>
