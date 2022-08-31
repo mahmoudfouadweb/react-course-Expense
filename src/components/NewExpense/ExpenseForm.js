@@ -43,7 +43,7 @@ const ExpenseForm = props => {
     const expenseData = {
       title: userInput.enteredTitle,
       amount: userInput.enteredAmount,
-      date: userInput.enteredDate,
+      date: new Date(userInput.enteredDate),
     };
     props.onSaveExpenseDataLevelTwo(expenseData);
     setUserInput({
@@ -52,7 +52,9 @@ const ExpenseForm = props => {
       enteredDate: '',
     });
   };
-
+  const yearFilterHandler = () => {
+    const selected = props.onFilter;
+  };
   console.log(userInput);
   return (
     <form onSubmit={submitHandler}>

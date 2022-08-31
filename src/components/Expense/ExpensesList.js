@@ -14,8 +14,7 @@ function ExpensesList(props) {
         <ExpensesFilter onYear={selectedYear} onAddYear={addEnteredYear} />
         {props.expenses.map((expense, i) => (
           <ExpenseItem
-            key={`e${i + 1}`}
-            id={`e${i + 1}`}
+            key={expense.id}
             title={expense.title}
             amount={expense.amount}
             date={expense.date}

@@ -8,7 +8,12 @@ const DUMMY_DATA = [
     amount: 94.12,
     date: new Date(2020, 7, 14),
   },
-  { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12) },
+  {
+    id: 'e2',
+    title: 'New TV',
+    amount: 799.49,
+    date: new Date(2021, 2, 12),
+  },
   {
     id: 'e3',
     title: 'Car Insurance',
@@ -24,19 +29,23 @@ const DUMMY_DATA = [
 ];
 function App() {
   const [expenses, setExpenses] = useState(DUMMY_DATA);
-  const expenseHandler = data => {
-    setExpenses(prevData => [
-      {
-        data,
-        ...prevData,
-      },
-    ]);
+
+  const expenseHandler = data1 => {
+    setExpenses(prevData => [data1, ...prevData]);
     console.log('App');
+  };
+  const filterHandler = year => {
+    const filtered = expenses.filter(selectedYear => {
+      return selectedYear === year;
+    });
   };
   console.log(expenses);
   return (
     <div>
-      <NewExpense onAddExpenseLevelFirst={expenseHandler} />
+      <NewExpense
+        onFilter={filterHandler}
+        onAddExpenseLevelFirst={expenseHandler}
+      />
       <ExpensesList expenses={expenses} />
     </div>
   );
