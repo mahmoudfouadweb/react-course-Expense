@@ -52,9 +52,7 @@ const ExpenseForm = props => {
       enteredDate: '',
     });
   };
-  const yearFilterHandler = () => {
-    const selected = props.onFilter;
-  };
+
   console.log(userInput);
   return (
     <form onSubmit={submitHandler}>

@@ -13,10 +13,7 @@ const NewExpense = props => {
 
   return (
     <div className="new-expense">
-      <ExpenseForm
-        onFilter={props.onFilter}
-        onSaveExpenseDataLevelTwo={saveExpenseDataHandler}
-      />
+      <ExpenseForm onSaveExpenseDataLevelTwo={saveExpenseDataHandler} />
     </div>
   );
 };

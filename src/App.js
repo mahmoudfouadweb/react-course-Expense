@@ -34,18 +34,11 @@ function App() {
     setExpenses(prevData => [data1, ...prevData]);
     console.log('App');
   };
-  const filterHandler = year => {
-    const filtered = expenses.filter(selectedYear => {
-      return selectedYear === year;
-    });
-  };
+
   console.log(expenses);
   return (
     <div>
-      <NewExpense
-        onFilter={filterHandler}
-        onAddExpenseLevelFirst={expenseHandler}
-      />
+      <NewExpense onAddExpenseLevelFirst={expenseHandler} />
       <ExpensesList expenses={expenses} />
     </div>
   );

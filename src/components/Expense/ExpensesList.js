@@ -7,6 +7,14 @@ function ExpensesList(props) {
   const [selectedYear, setSelectedYear] = useState('2019');
   const addEnteredYear = theYear => {
     setSelectedYear(theYear);
+    console.log(theYear);
+  };
+
+  const filterHandler = year => {
+    const filtered = props.expenses.filter(selectedYear => {
+      return selectedYear === year;
+    });
+    console.log('filterHandler', filtered);
   };
   return (
     <div>
