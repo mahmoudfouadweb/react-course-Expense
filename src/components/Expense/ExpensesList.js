@@ -4,19 +4,18 @@ import './ExpensesList.css';
 import { useState } from 'react';
 
 function ExpensesList(props) {
-  const [selectedYear, setSelectedYear] = useState('2020');
+  const [selectedYear, setSelectedYear] = useState('2019');
   const addEnteredYear = theYear => {
     setSelectedYear(theYear);
   };
-  console.log(selectedYear);
   return (
     <div>
       <div className="expenses">
-        <ExpensesFilter onAddYear={addEnteredYear} />
-        {props.expenses.map(expense => (
+        <ExpensesFilter onYear={selectedYear} onAddYear={addEnteredYear} />
+        {props.expenses.map((expense, i) => (
           <ExpenseItem
-            key={expense.id}
-            id={expense.id}
+            key={`e${i + 1}`}
+            id={`e${i + 1}`}
             title={expense.title}
             amount={expense.amount}
             date={expense.date}
