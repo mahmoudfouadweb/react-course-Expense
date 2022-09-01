@@ -1,17 +1,17 @@
 import ExpenseItem from './ExpenseItem';
 import ExpensesFilter from '../NewExpense/ExpensesFilter';
-import './ExpensesList.css';
+import './Expenses.css';
 import { useState } from 'react';
 
-function ExpensesList(props) {
+function Expenses(props) {
   const [selectedYear, setSelectedYear] = useState('2019');
   const addEnteredYear = theYear => {
     setSelectedYear(theYear);
     props.onFilter(theYear);
   };
-  let expenesesContent = <h1>No Data Found...</h1>;
+  let expensesContent = <h1>No Data Found...</h1>;
   if (props.expenses.length > 0) {
-    expenesesContent = props.expenses.map((expense, i) => (
+    expensesContent = props.expenses.map((expense, i) => (
       <ExpenseItem
         key={expense.id}
         title={expense.title}
@@ -24,10 +24,10 @@ function ExpensesList(props) {
     <div>
       <div className="expenses">
         <ExpensesFilter onYear={selectedYear} onAddYear={addEnteredYear} />
-        {expenesesContent}
+        {expensesContent}
       </div>
     </div>
   );
 }
 
-export default ExpensesList;
+export default Expenses;
