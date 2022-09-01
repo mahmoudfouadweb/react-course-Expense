@@ -27,19 +27,25 @@ const DUMMY_DATA = [
     date: new Date(2021, 5, 12),
   },
 ];
+
 function App() {
   const [expenses, setExpenses] = useState(DUMMY_DATA);
-
+  const [userFilter, setUserFilter] = useState([]);
   const expenseHandler = data1 => {
     setExpenses(prevData => [data1, ...prevData]);
     console.log('App');
   };
-
-  console.log(expenses);
+  const filterHandler = year => {
+    const filtered = [
+      ...expenses.filter(expense => expense.date.getFullYear() == year),
+    ];
+    setUserFilter(filtered);
+  };
+  console.log('expenses outside', expenses);
   return (
     <div>
       <NewExpense onAddExpenseLevelFirst={expenseHandler} />
-      <ExpensesList expenses={expenses} />
+      <ExpensesList onFilter={filterHandler} expenses={userFilter} />
     </div>
   );
 }

@@ -7,27 +7,24 @@ function ExpensesList(props) {
   const [selectedYear, setSelectedYear] = useState('2019');
   const addEnteredYear = theYear => {
     setSelectedYear(theYear);
-    console.log(theYear);
+    props.onFilter(theYear);
   };
 
-  const filterHandler = year => {
-    const filtered = props.expenses.filter(selectedYear => {
-      return selectedYear === year;
-    });
-    console.log('filterHandler', filtered);
-  };
+  console.log('selectedYear', selectedYear);
   return (
     <div>
       <div className="expenses">
         <ExpensesFilter onYear={selectedYear} onAddYear={addEnteredYear} />
-        {props.expenses.map((expense, i) => (
-          <ExpenseItem
-            key={expense.id}
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-          />
-        ))}
+        {props.expenses.length === 0 && <h1>No Data Found... </h1>}
+        {props.expenses.length > 0 &&
+          props.expenses.map((expense, i) => (
+            <ExpenseItem
+              key={expense.id}
+              title={expense.title}
+              amount={expense.amount}
+              date={expense.date}
+            />
+          ))}
       </div>
     </div>
   );

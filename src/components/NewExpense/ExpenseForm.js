@@ -17,7 +17,6 @@ const ExpenseForm = props => {
         enteredTitle: e.target.value,
       };
     });
-    // console.log(e.target.value);
   };
   const amountChangeHandler = e => {
     setUserInput(prevState => {
@@ -35,8 +34,6 @@ const ExpenseForm = props => {
       };
     });
   };
-  console.log(userInput);
-  // console.log(enteredTitle);
 
   const submitHandler = e => {
     e.preventDefault();
@@ -53,7 +50,6 @@ const ExpenseForm = props => {
     });
   };
 
-  console.log(userInput);
   return (
     <form onSubmit={submitHandler}>
       <div className="new-expense__controls ">
